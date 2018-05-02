@@ -10,18 +10,28 @@ import { AdminComponent } from './admin/admin.component';
 import { ReservationsComponent } from './admin/reservations/reservations.component';
 import { ReservationComponent } from './admin/reservations/reservation/reservation.component';
 import { ReservationListComponent } from './admin/reservations/reservation-list/reservation-list.component';
-import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import {ToastrModule} from 'ngx-toastr';
+import {RouterModule, Routes} from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import {AuthGuard} from './auth-guard.service';
+import {AuthService} from './auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+const appRoutes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'admin', canActivate: [AuthGuard],
+  component: AdminComponent}
+];
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
     ReservationsComponent,
     ReservationComponent,
-    ReservationListComponent
+    ReservationListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +39,12 @@ import {ToastrModule} from 'ngx-toastr';
     AngularFireDatabaseModule,
     FormsModule,
     ToastrModule.forRoot(),
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthService, AuthGuard],
+  bootstrap: [AppComponent],
+  exports: [RouterModule]
 })
 export class AppModule { }

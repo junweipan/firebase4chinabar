@@ -3,6 +3,7 @@ import {ReserveserviceService} from '../../../shared/reserveservice.service';
 
 import { Reservation } from '../../../shared/reservation.model';
 import {ToastrService} from 'ngx-toastr';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-reservation-list',
@@ -14,7 +15,8 @@ export class ReservationListComponent implements OnInit {
 
   reservationList: Reservation[];
   constructor(private reservationservice: ReserveserviceService,
-              private tostr: ToastrService) { }
+              private tostr: ToastrService,
+              private router: Router) { }
 
   ngOnInit() {
     const x = this.reservationservice.getData();
@@ -36,8 +38,4 @@ export class ReservationListComponent implements OnInit {
       this.tostr.warning('Deleted Successfauly', 'Reservarion register');
     }
   }
-  returnHome() {
-    window.location.href = '/';
-  }
-
 }
