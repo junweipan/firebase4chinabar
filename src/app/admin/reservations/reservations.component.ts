@@ -14,7 +14,7 @@ export class ReservationsComponent implements OnInit {
 
   ngOnInit() {
   }
-  LogOut(){
+  LogOut() {
     this.authService.loggedIn = false;
     this.router.navigate(['/']);
   }

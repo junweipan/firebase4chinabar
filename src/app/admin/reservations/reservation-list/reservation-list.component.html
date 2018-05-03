@@ -1,7 +1,16 @@
+
 <h6 class="text-center">Reservation Register</h6><br/>
+<div>
+  <label>Reservation Date</label>
+  <input type="text" class="form-control" name="book_date"
+         [(ngModel)]="old_book_date" placeholder="Filter By Date" bsDatepicker>
+  <br/>
+  <button class="btn btn-primary" (click)="serachByDate()">Search</button>
+  <button class="btn btn-primary" (click)="listAll()">List All</button>
 
 <table class="table table-sm table-hover">
-  <tr *ngFor="let reservation of reservationList">
+  <br/>
+  <tr *ngFor="let reservation of reservationList | filter: new_book_date">
     <td>{{reservation.first_name}}</td>
     <td>{{reservation.email}}</td>
     <td>{{reservation.no_of_people}}</td>
@@ -17,3 +26,4 @@
   </tr>
 </table>
 
+</div>

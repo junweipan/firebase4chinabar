@@ -18,10 +18,12 @@ import { HomeComponent } from './home/home.component';
 import {AuthGuard} from './auth-guard.service';
 import {AuthService} from './auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'admin', canActivate: [AuthGuard],
+  {path: 'admin',
+   // canActivate: [AuthGuard],
   component: AdminComponent}
 ];
 @NgModule({
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     ToastrModule.forRoot(),
     BsDatepickerModule.forRoot(),
     RouterModule.forRoot(appRoutes),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    Ng2SearchPipeModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent],

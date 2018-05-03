@@ -18,6 +18,7 @@ export class ReservationComponent implements OnInit {
   }
   onSubmit(reservationForm: NgForm) {
     // if the key is null, it is a new item, use insert, else use update
+    console.log(reservationForm.value);
     if (reservationForm.value.$key === null) {
       this.reservationservice.insertReservation(reservationForm.value);
       this.tostr.success('Submitted Successfully', 'Reservation Register');
