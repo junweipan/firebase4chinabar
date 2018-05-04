@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
   firebaseConifg: {
-    apiKey: 'AIzaSyCXyXQBzdvXGseDEdyoyG3GXAIHR9P1blk',
-    authDomain: 'chinabar-a31ed.firebaseapp.com',
-    databaseURL: 'https://chinabar-a31ed.firebaseio.com',
-    projectId: 'chinabar-a31ed',
-    storageBucket: 'chinabar-a31ed.appspot.com',
-    messagingSenderId: '606662274088'
+    apiKey: 'AIzaSyD1fNPPcjBN5RrRu7yMj9utQhU-G_tsswA',
+    authDomain: 'chinabardb.firebaseapp.com',
+    databaseURL: 'https://chinabardb.firebaseio.com',
+    projectId: 'chinabardb',
+    storageBucket: '',
+    messagingSenderId: '369576609541'
   }
 };
